@@ -1,0 +1,165 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Поиск документов {% endblock %}
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Поиск документов</h4>
+            <p class="card-description">
+                {{ info }}
+            </p>
+            <div class="table-responsive">
+            {% if docs %}
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>
+                      Код документа
+                    </th>
+                    <th>
+                      Дата добавления документа
+                    </th>
+                    <th>
+                      Короткое название документа
+                    </th>
+                    <th>
+                      Автор документа
+                    </th>
+                    <th>
+                      ISBN документа
+                    </th>
+                    <th>
+                      ББК документа
+                    </th>
+                    <th>
+                      УДК документа
+                    </th>
+                    <th>
+                      Основной документа
+                    </th>
+                    <th>
+                      Дата выхода документа
+                    </th>
+                    <th>
+                      Тип документа
+                    </th>
+                    <th>
+                      Первоисточник документа
+                    </th>
+                    <th>
+                      Краткое описание документа
+                    </th>
+                    <th>
+                      Язык документа
+                    </th>
+                    <th>
+                      Формат документа
+                    </th>
+                    <th>
+                      Отраслевой классификатор документа
+                    </th>
+                    <th>
+                      Технология документа
+                    </th>
+                    <th>
+                      Документ
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                      {% for el in docs %}
+                          <tr>
+                              <td>
+                                  {{ el.id_doc }}
+                              </td>
+                              <td>
+                                  {{ el.date_add }}
+                              </td>
+                              <td>
+                                  {{ el.short_name }}
+                              </td>
+                              <td>
+                                  {{ el.autor }}
+                              </td>
+                              <td>
+                                  {{ el.isbn }}
+                              </td>
+                              <td>
+                                  {{ el.bbk }}
+                              </td>
+                              <td>
+                                  {{ el.udk }}
+                              </td>
+                              <td>
+                                  {% if el.main_doc == True %}
+                                      Да
+                                  {% else %}
+                                      Нет
+                                  {% endif %}
+                              </td>
+                              <td>
+                                  {{ el.rel_date_doc }}
+                              </td>
+                              <td>
+                                  {{ el.type_doc }}
+                              </td>
+                              <td>
+                                  {{ el.original_source }}
+                              </td>
+                              <td>
+                                  {{ el.short_desc }}
+                              </td>
+                              <td>
+                                  {{ el.language }}
+                              </td>
+                              <td>
+                                  {{ el.format_doc }}
+                              </td>
+                              <td>
+                                  {{ el.classifier_doc }}
+                              </td>
+                              <td>
+                                  {{ el.technology_doc }}
+                              </td>
+                              <td>
+                                  {% if el.file_doc.url != null %}
+                                      {{ el.file_doc.url }}
+                                  {% else %}
+                                      {{ el.file_doc }}
+                                  {% endif %}
+                              </td>
+                          </tr>
+                      {% endfor %}
+            {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific JS Plugins goes HERE  -->
+{% block js_plugins %}
+
+  <script src="/static/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+{% endblock js_plugins %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

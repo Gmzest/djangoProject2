@@ -1,0 +1,43 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Error 403 {% endblock %} 
+
+<!-- Specific CSS Plugins goes HERE  -->
+{% block css_plugins %}{% endblock css_plugins %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %} 
+
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <img src="/static/assets/images/logolab.png" alt="logo">
+              </div>
+              <h4>
+                Ошибка 403 - Отказано в доступе.
+              </h4>
+              <br />
+              <a href="{% url 'home' %}" >На главную</a>
+              <hr>
+              <div class="text-center mt-4 fw-light">
+                    &copy; <a target="_blank" href="https://portal.novsu.ru/dept/29469573/">2022 ОЦТО НовГУ</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+  
+{% endblock content %}
+
+<!-- Specific JS Plugins goes HERE  -->
+{% block js_plugins %}{% endblock js_plugins %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

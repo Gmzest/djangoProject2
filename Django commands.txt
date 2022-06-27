@@ -1,0 +1,57 @@
+
+
+pip install django
+
+pip3 install django-auth-ldap
+
+if errors:
+pip3 install django-python3-ldap
+
+https://www.lfd.uci.edu/~gohlke/pythonlibs/#python-ldap
+
+Новый проект
+django-admin startproject lk
+
+перейдем в директорию проекта
+cd lk
+
+миграция настроек
+python manage.py migrate
+
+Создадим суперпользователя
+python manage.py createsuperuser
+
+Версии библиотек зафиксируем в файле
+pip freeze > requirements.txt
+
+pip install -r requirements.txt
+
+Запуск проекта
+python manage.py runserver
+
+python manage.py runserver 10.0.9.186:8000
+
+Создаем подсистему в проекте
+python manage.py startapp users
+
+
+Мигрируем подсисьему в проект после ее редактирования
+python manage.py makemigrations users
+
+Обновление модели базы данных, возможно придется ее сначала удалить
+python manage.py migrate
+
+установка DJANGO REST API
+pip install djangorestframework
+
+pip freeze > requirements.txt
+
+pip install django-cors-headers
+
+
+pip install django-crispy-forms
+
+
+
+python manage.py collectstatic
+и получаем папку static с собранными статическими файлами (пока что там файлы для админки, для наших будущих страниц еще не добавлены CSS и JS файлы, а также изображения для оформления шаблона).

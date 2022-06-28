@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY', default='8qkm=f&=h9w20wo!uo0t$jm%zcl(#n+$!&m^d
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS        = ['*']
-CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'https://' + config('SERVER', default='127.0.0.1')]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'http://127.0.0.1:8000', 'https://' + config('SERVER', default='127.0.0.1')]
 
 
 # Application definition
@@ -83,7 +83,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
+    }  
+}
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

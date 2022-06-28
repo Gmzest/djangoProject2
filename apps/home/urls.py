@@ -17,6 +17,6 @@ urlpatterns = [
     path('search/<str:parametr>/<str:value>', views.search_docs, name='search_docs'),
 
     # Matches any html file
-    #re_path(r'^.*\.*', views.pages, name='pages'),
+    re_path(r'^.*\.*', views.pages, name='pages'),
 
 ]
